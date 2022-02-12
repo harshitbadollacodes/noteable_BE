@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
 const jwt = require("jsonwebtoken");
 
-const { Note } = require("../model/note.model");
+const Note = require("../model/note.model");
 const { User } = require("../model/user.model");
 
 const router = express.Router();
@@ -81,6 +81,7 @@ router.route("/signup")
         const saveUser = await newUser.save();
 
         const newNote = new Note({
+            _id: saveUser._id,
             noteTitle: "Untitled Note",
             noteBody: "This is a sample note.Feel free to edit this",
             isPinned: false,
