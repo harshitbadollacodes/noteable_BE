@@ -133,17 +133,17 @@ router.route("/delete/:noteId")
 
         const allNotes = await Note.findById(userId);
 
-        const note = allNotes.notes.find((note) => {
+        const findIndex = allNotes.notes.findIndex((note) => {
             return String(note._id) === noteId
         });
 
-        await note.remove();
+        allNotes.note[findIndex].remove();
+        await allNotes.save();
 
         res.json({
             suceess: true,
             allNotes
         });
-
 
     } catch(error) {
         console.log(error);
