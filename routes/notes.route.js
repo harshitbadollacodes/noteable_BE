@@ -136,10 +136,7 @@ router.route("/delete/:noteId")
         const findIndex = allNotes.notes.findIndex((note) => {
             return String(note._id) === noteId
         });
-
-        console.log(findIndex);
         
-
         allNotes.notes[findIndex].remove();
         await allNotes.save();
 
