@@ -137,7 +137,10 @@ router.route("/delete/:noteId")
             return String(note._id) === noteId
         });
 
-        allNotes.note[findIndex].remove();
+        console.log(findIndex);
+        
+
+        allNotes.notes[findIndex].remove();
         await allNotes.save();
 
         res.json({
