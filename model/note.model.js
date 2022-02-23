@@ -10,7 +10,6 @@ const NoteSchema = new Schema({
     notes: [{        
         noteTitle: {
             type: String,
-            required: "Please enter note title"
         },
 
         noteBody: {
